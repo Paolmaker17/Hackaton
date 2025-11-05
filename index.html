@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .varela-round-regular {
+            font-family: "Varela Round", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .slide-in-onload {
+            animation: slideInFromLeft 1.2s ease-out forwards;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .scroll-reveal {
+            transform: translateX(-40px);
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: transform 1.2s ease-out, opacity 1.2s ease-out; 
+        }
+
+        .is-inview {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body class="h-[5000px] m-0 p-0 varela-round-regular">
+
+    <section id="MainContainer" class="w-full h-[600px] flex flex-wrap justify-center items-center bg-orange-400">
+        <div class="h-[400px] w-[500px]">
+            <div id="Title" class="slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
+                Titolo di Provasssss
+            </div>
+            <div id="TextContent" class="slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
+                Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+            </div>
+        </div>
+
+        <div id="ImageMain" class="slide-in-onload w-[400px] h-[400px] ml-[60px]">
+            <img src="MainPage.png" alt="Walk Note">
+        </div>
+    </section>
+
+    <section id="FirstText" class="flex flex-wrap justify-center items-center w-full h-[700px] bg-orange-200">
+        <div class="h-[400px] w-[500px]">
+            <div id="Title" class="scroll-reveal slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
+                Titolo di Provasssss
+            </div>
+            <div id="TextContent" class="scroll-reveal slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
+                Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+            </div>
+        </div>
+    </section>
+
+    <section id="SecondText" class="flex flex-wrap justify-center items-center w-full h-[700px] flex flex-wrap justify-center items-center bg-orange-100"></section>
+
+    <section id="ThirdText" class="flex flex-wrap justify-center items-center w-full h-[700px] bg-orange-200">
+        <div class="h-[400px] w-[500px]">
+            <div id="Title" class="scroll-reveal slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
+                Titolo di Provasssss
+            </div>
+            <div id="TextContent" class="scroll-reveal slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
+                Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+            </div>
+        </div>
+    </section>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const revealElements = document.querySelectorAll('.scroll-reveal')
+
+            if (!('IntersectionObserver' in window)) {
+                revealElements.forEach(el => el.classList.add('is-inview'))
+                return
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -12% 0px', // rivela leggermente prima di farlo tutto
+                threshold: 0.8                 // 8% di un elemento
+            }
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-inview')
+                        observer.unobserve(entry.target)
+                    }
+                })
+            }
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions)
+            revealElements.forEach(el => observer.observe(el))
+        })
+    </script>
+</body>
+</html>
