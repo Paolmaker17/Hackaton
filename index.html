@@ -45,7 +45,7 @@
         }
     </style>
 
-    <title>Document</title>
+    <title>Walk Note</title>
 </head>
 <body class="h-[5000px] m-0 p-0 varela-round-regular">
 
@@ -75,7 +75,16 @@
         </div>
     </section>
 
-    <section id="SecondText" class="flex flex-wrap justify-center items-center w-full h-[700px] flex flex-wrap justify-center items-center bg-orange-100"></section>
+    <section id="SecondText" class="flex flex-wrap justify-center items-center w-full h-[700px] flex flex-wrap justify-center items-center bg-orange-100">
+        <div class="h-[400px] w-[500px]">
+            <div id="Title" class="scroll-reveal slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
+                Titolo di Provasssss
+            </div>
+            <div id="TextContent" class="scroll-reveal slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
+                Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+            </div>
+        </div>
+    </section>
 
     <section id="ThirdText" class="flex flex-wrap justify-center items-center w-full h-[700px] bg-orange-200">
         <div class="h-[400px] w-[500px]">
@@ -111,7 +120,7 @@
                 })
             }
 
-            
+
             const observer = new IntersectionObserver(observerCallback, observerOptions)
             revealElements.forEach(el => observer.observe(el))
         })
