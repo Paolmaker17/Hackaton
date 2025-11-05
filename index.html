@@ -36,7 +36,7 @@
             transform: translateX(-40px);
             opacity: 0;
             will-change: transform, opacity;
-            transition: transform 1.2s ease-out, opacity 1.2s ease-out; 
+            transition: transform 1s ease-out, opacity 1.2s ease-out; 
         }
 
         .is-inview {
@@ -66,10 +66,10 @@
 
     <section id="FirstText" class="flex flex-wrap justify-center items-center w-full h-[700px] bg-orange-200">
         <div class="h-[400px] w-[500px]">
-            <div id="Title" class="scroll-reveal slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
-                Titolo di Provasssss
+            <div id="Title" class="scroll-reveal h-[70px] w-[500px] font-medium text-3xl">
+                Perchè abbiamo creato Walk Note
             </div>
-            <div id="TextContent" class="scroll-reveal slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
+            <div id="TextContent" class="scroll-reveal h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
                 Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
             </div>
         </div>
@@ -77,10 +77,10 @@
 
     <section id="SecondText" class="flex flex-wrap justify-center items-center w-full h-[700px] flex flex-wrap justify-center items-center bg-orange-100">
         <div class="h-[400px] w-[500px]">
-            <div id="Title" class="scroll-reveal slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
-                Titolo di Provasssss
+            <div id="Title" class="scroll-reveal h-[70px] w-[500px] font-medium text-3xl">
+                Come funziona Walk Note
             </div>
-            <div id="TextContent" class="scroll-reveal slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
+            <div id="TextContent" class="scroll-reveal h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
                 Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
             </div>
         </div>
@@ -88,42 +88,15 @@
 
     <section id="ThirdText" class="flex flex-wrap justify-center items-center w-full h-[700px] bg-orange-200">
         <div class="h-[400px] w-[500px]">
-            <div id="Title" class="scroll-reveal slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
-                Titolo di Provasssss
+            <div id="Title" class="scroll-reveal h-[70px] w-[500px] font-medium text-3xl">
+                Vantaggi di Walk Note
             </div>
-            <div id="TextContent" class="scroll-reveal slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
+            <div id="TextContent" class="scroll-reveal h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
                 Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
             </div>
         </div>
     </section>
 
-    <script>
-            document.addEventListener('DOMContentLoaded', () => {
-            const revealElements = document.querySelectorAll('.scroll-reveal')
-
-            if (!('IntersectionObserver' in window)) {
-                revealElements.forEach(el => el.classList.add('is-inview'))
-                return
-            }
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -12% 0px', // rivela leggermente prima di farlo tutto
-                threshold: 0.8                 // 8% di un elemento
-            }
-
-            const observerCallback = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-inview')
-                        observer.unobserve(entry.target)
-                    }
-                })
-            }
-
-
-            const observer = new IntersectionObserver(observerCallback, observerOptions)
-            revealElements.forEach(el => observer.observe(el))
-        })
-    </script>
+    <script src="script.JS"></script>
 </body>
 </html>
