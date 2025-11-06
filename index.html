@@ -1,126 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Varela+Round&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    .varela-round-regular {
+      font-family: "Varela Round", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
 
-    <style>
-        .varela-round-regular {
-            font-family: "Varela Round", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-        }
+    .slide-in-onload {
+      animation: slideInFromLeft 1.2s ease-out forwards;
+    }
 
-        .slide-in-onload {
-            animation: slideInFromLeft 1.2s ease-out forwards;
-        }
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
 
-        @keyframes slideInFromLeft {
-            from {
-                transform: translateX(-40px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+    .scroll-reveal {
+      transform: translateX(-40px);
+      opacity: 0;
+      will-change: transform, opacity;
+      transition: transform 1.2s ease-out, opacity 1.2s ease-out;
+    }
 
-        .scroll-reveal {
-            transform: translateX(-40px);
-            opacity: 0;
-            will-change: transform, opacity;
-            transition: transform 1s ease-out, opacity 1.2s ease-out; 
-        }
+    .is-inview {
+      transform: translateX(0);
+      opacity: 1;
+    }
 
-        .is-inview {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    </style>
+    .divider {
+      width: 80px;
+      height: 5px;
+      background-color: #fb923c; /* arancione Tailwind 400 */
+      border-radius: 9999px;
+      margin: 1rem 0 1.5rem 0;
+    }
 
-    <title>Walk Note</title>
+    hr.section-divider {
+      border: none;
+      height: 2px;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+
+    form input {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    form input:focus {
+      border-color: #fb923c;
+    }
+
+    form input[type="submit"] {
+      background-color: #fb923c;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #f97316;
+    }
+  </style>
+
+  <title>Walk Note</title>
 </head>
-<body class="m-0 p-0 varela-round-regular">
 
-    <section id="MainContainer" class="w-full h-[600px] flex flex-wrap justify-center items-center bg-orange-400">
-        <div class="h-[400px] w-[500px]">
-            <div id="Title" class="slide-in-onload h-[70px] w-[500px] font-medium text-3xl">
-                Titolo di Provasssss
-            </div>
-            <div id="TextContent" class="slide-in-onload h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
-                Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-            </div>
-        </div>
+<body class="m-0 p-0 varela-round-regular bg-white text-gray-800">
 
-        <div id="ImageMain" class="slide-in-onload w-[400px] h-[400px] ml-[60px]">
-            <img src="MainPage.png" alt="Walk Note">
-        </div>
-    </section>
+  <section id="MainContainer" class="w-full h-[600px] flex flex-wrap justify-center items-center bg-orange-400 text-white">
+    <div class="h-[400px] w-[500px] p-4">
+      <div class="slide-in-onload text-4xl font-semibold mb-4">Titolo di Provasssss</div>
+      <div class="slide-in-onload text-2xl leading-relaxed">
+        Testo di provassssssssssssss
+      </div>
+    </div>
 
-    <section id="FirstText" class="flex flex-wrap justify-center items-center w-full h-[800px] bg-orange-200">
-        <div class="h-[500px] w-[500px]">
-            <div id="Title" class="scroll-reveal h-[70px] w-[550px] font-semibold text-3xl">
-                Perchè abbiamo creato Walk Note
-            </div>
-            <div id="TextContent" class="scroll-reveal h-[430px] w-[500px] text-2xl text-clip overflow-hidden">
-                Walk Note nasce dal desiderio di farci riscoprire il mondo che ci circonda.  
-                Troppo spesso camminiamo con lo sguardo fisso sullo schermo, dimenticandoci di ciò che abbiamo intorno:  
-                i suoni della città, il vento tra gli alberi, i passi che ci accompagnano. <br><br>
+    <div id="ImageMain" class="slide-in-onload w-[400px] h-[400px] ml-[60px]">
+      <img src="MainPage.png" alt="Walk Note" class="rounded-2xl shadow-lg">
+    </div>
+  </section>
 
-                Con Walk Note vogliamo invitarti a rallentare, ad ascoltare, a vivere davvero ogni momento del tuo percorso.  
-                Meno distrazioni digitali, più connessione con ciò che è reale.</div>
-        </div>
-    </section>
+  <hr class="section-divider">
 
-    <section id="SecondText" class="flex flex-wrap justify-center items-center w-full h-[800px] flex flex-wrap justify-center items-center bg-orange-100">
-        <div class="h-[400px] w-[500px]">
-            <div id="Title" class="scroll-reveal h-[70px] w-[500px] font-medium text-3xl">
-                Come funziona Walk Note
-            </div>
-            <div id="TextContent" class="scroll-reveal h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
-                Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-            </div>
-        </div>
-    </section>
+  <section id="FirstText" class="flex flex-wrap justify-center items-center w-full h-auto py-20 bg-white">
+    <div class="h-auto w-[500px] text-center md:text-left">
+      <div id="Title" class="scroll-reveal text-3xl font-bold">
+        Perché abbiamo creato Walk Note
+      </div>
+      <div class="divider mx-auto md:mx-0"></div>
+      <div id="TextContent" class="scroll-reveal text-lg leading-relaxed text-gray-700">
+        Walk Note nasce dal desiderio di farci riscoprire il mondo che ci circonda.  
+        Troppo spesso camminiamo con lo sguardo fisso sullo schermo, dimenticandoci di ciò che abbiamo intorno:  
+        i suoni della città, il vento tra gli alberi, i passi che ci accompagnano. <br><br>
+        Con Walk Note vogliamo invitarti a rallentare, ad ascoltare, a vivere davvero ogni momento del tuo percorso.  
+        Meno distrazioni digitali, più connessione con ciò che è reale.
+      </div>
+    </div>
+  </section>
 
-    <section id="ThirdText" class="flex flex-wrap justify-center items-center w-full h-[800px] bg-orange-200">
-        <div class="h-[400px] w-[500px]">
-            <div id="Title" class="scroll-reveal h-[70px] w-[500px] font-medium text-3xl">
-                Vantaggi di Walk Note
-            </div>
-            <div id="TextContent" class="scroll-reveal h-[330px] w-[500px] text-2xl text-clip overflow-hidden">
-                Testo di provassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-            </div>
-        </div>
-    </section>
+  <hr class="section-divider">
 
-    <section id="PreorderArea" class="flex justify-center items-center w-full h-[800px] bg-orange-400">
-        <div class="h-[400px] w-[500px]">
-            <div id="Title" class="scroll-reveal h-[70px] w-[500px] font-medium text-3xl">
-                Preordina Walk Note Ora!
-            </div>
-            <form action="" class="scroll-reveal h-[70px] w-[500px] font-medium text-3xl">
-                <input type="text" required placeholder="Nome">
-                <input type="text" required placeholder="Cognome"> 
-                <input type="email" required placeholder="Email">
-                <input type="submit" value="Preordina Ora!">
-            </form>
-        </div>
-    </section>
+  <section id="SecondText" class="flex flex-wrap justify-center items-center w-full h-auto py-20 bg-white">
+    <div class="h-auto w-[500px] text-center md:text-left">
+      <div id="Title" class="scroll-reveal text-3xl font-bold">
+        Come funziona Walk Note
+      </div>
+      <div class="divider mx-auto md:mx-0"></div>
+      <div id="TextContent" class="scroll-reveal text-lg leading-relaxed text-gray-700">
+        Walk Note ti accompagna nei tuoi percorsi quotidiani, offrendoti esperienze audio che si adattano al ritmo del tuo passo.  
+        Ogni camminata diventa un’occasione per scoprire, riflettere e vivere la città in modo nuovo.
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <div class="w-full h-[100px] flex justify-center items-center bg-orange-500 varela-round-regular">
-            © 2025 Walk Note. All rights reserved.
-        </div>
-    </footer>
+  <hr class="section-divider">
 
-    <script src="script.JS"></script>
+  <section id="ThirdText" class="flex flex-wrap justify-center items-center w-full h-auto py-20 bg-white">
+    <div class="h-auto w-[500px] text-center md:text-left">
+      <div id="Title" class="scroll-reveal text-3xl font-bold">
+        Vantaggi di Walk Note
+      </div>
+      <div class="divider mx-auto md:mx-0"></div>
+      <div id="TextContent" class="scroll-reveal text-lg leading-relaxed text-gray-700">
+        • Maggiore consapevolezza dei tuoi movimenti<br>
+        • Riduzione dello stress digitale<br>
+        • Momenti di pausa e riflessione personale<br>
+        • Esperienze audio ispiranti e personalizzate
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section id="PreorderArea" class="flex justify-center items-center w-full h-auto py-20 bg-orange-400 text-white">
+    <div class="h-auto w-[500px] text-center md:text-left">
+      <div id="Title" class="scroll-reveal text-3xl font-bold">
+        Preordina Walk Note Ora!
+      </div>
+
+      <form class="scroll-reveal mt-6">
+        <input type="text" required placeholder="Nome" minlength="3">
+        <input type="text" required placeholder="Cognome" minlength="3">
+        <input type="email" required placeholder="Email">
+        <input type="submit" value="Preordina Ora!">
+      </form>
+    </div>
+  </section>
+
+  <footer class="w-full h-[100px] flex justify-center items-center bg-orange-500 text-white text-lg font-medium">
+    © 2025 Walk Note. All rights reserved.
+  </footer>
+
+  <script src="script.JS"></script>
 </body>
 </html>
