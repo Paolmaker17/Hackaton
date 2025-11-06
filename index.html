@@ -160,20 +160,19 @@
 
   <hr class="section-divider">
 
-  <section id="PreorderArea" class="flex justify-center items-center w-full h-auto py-20 bg-lime-900 text-white">
+  <section id="PreorderArea" class="flex justify-center items-center w-full h-auto py-20 bg-cover bg-center text-white" style="background-image: url('Img/lake.jpeg');">
     <div class="h-auto w-[500px] text-center md:text-left">
-      <div id="Title" class="scroll-reveal text-3xl font-bold">
-        Preordina Walk Note Ora!
-      </div>
-
-      <form class="scroll-reveal mt-6">
-        <input type="text" required placeholder="Nome" minlength="3">
-        <input type="text" required placeholder="Cognome" minlength="3">
-        <input type="email" required placeholder="Email">
-        <input type="submit" value="Preordina Ora!">
-      </form>
+        <form class="scroll-reveal mt-6 bg-white/30 backdrop-blur-md rounded-2xl p-6 shadow-lg flex flex-col gap-4">
+            <div id="Title" class="text-3xl font-bold">
+                Preordina Walk Note Ora!
+            </div>
+            <input type="text" required placeholder="Nome" minlength="3" class="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-lime-500">
+            <input type="text" required placeholder="Cognome" minlength="3" class="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-lime-500">
+            <input type="email" required placeholder="Email" class="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-lime-500">
+            <input type="submit" value="Preordina Ora!" class="cursor-pointer bg-lime-700 hover:bg-lime-600 text-white font-semibold py-3 rounded-md transition">
+        </form>
     </div>
-  </section>
+    </section>
 
   <footer class="w-full bg-green-950 text-white py-8">
     <div class="max-w-[900px] mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
