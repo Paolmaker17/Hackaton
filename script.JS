@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {
                 root: null,
                 rootMargin: '0px 0px -12% 0px', // rivela leggermente prima di farlo tutto
-                threshold: 0.8                 // 8% di un elemento
+                threshold: 0.8                  // 8% di un elemento
             }
 
             const observerCallback = (entries, observer) => {
