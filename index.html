@@ -17,6 +17,17 @@
       font-style: normal;
     }
 
+    .bg-wrapper::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 45%;
+      height: 140px;
+      background: linear-gradient(135deg, rgba(255, 115, 0, 0.6), transparent);
+      clip-path: polygon(0 0, 100% 100%, 0% 100%);
+    }
+
     .slide-in-onload {
       animation: slideInFromLeft 1.2s ease-out forwards;
     }
@@ -101,46 +112,50 @@
   <title>Walk Note</title>
 </head>
 
-<body class="m-0 p-0 varela-round-regular bg-white text-gray-800">
+<body class="m-0 p-0 varela-round-regular bg-white text-gray-800 bg-gradient-to-br from-[#fdf6f0] to-[#fafaf9]">
 
-  <section id="MainContainer" 
-    class="relative flex flex-col md:flex-row justify-center items-center w-full min-h-[650px] overflow-hidden text-white">
+<section id="MainContainer" 
+  class="relative flex flex-col md:flex-row justify-center items-center w-full min-h-[650px] overflow-hidden text-white"
+  style="background-image: url('Img/bg.jpg');
+         background-size: cover;
+         background-position: center top;
+         position: relative;">
+  
+  <div class="absolute inset-0 bg-black/40"></div>
 
-    <div class="absolute inset-0">
-      <img src="Img/bg.jpg" 
-          alt="Sfondo Walk Note" 
-          class="w-full h-full object-cover scale-105 blur-sm brightness-75">
-      <div class="absolute inset-0 bg-black/40"></div>
-    </div>
+  <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left max-w-[600px] px-6">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tight slide-in-onload">
+      Viaggia, Scrivi, Ricorda
+    </h1>
+    <p class="text-lg md:text-xl leading-relaxed text-gray-200 slide-in-onload">
+      Riduci la dipendenza dal telefono durante i viaggi e riscopri il piacere 
+      di vivere l’esperienza autentica del mondo intorno a te. 
+      Con <span class="text-orange-400 font-semibold">Walk Note</span> 
+      ogni passo diventa un ricordo, ogni cammino un racconto.
+    </p>
+    <a href="#PreorderArea" 
+       class="scroll-reveal mt-10 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-full shadow-lg transition-transform duration-300 hover:scale-105">
+      Preordina Ora
+    </a>
+  </div>
 
-    <div class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left max-w-[600px] px-6">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tight slide-in-onload">
-        Viaggia, Scrivi, Ricorda
-      </h1>
+  <div class="scroll-reveal hidden md:block relative z-10 ml-12">
+    <img src="Img/MainImg.png" 
+         alt="Walk Note dispositivo" 
+         class="w-[420px] h-auto rounded-2xl shadow-2xl border border-white/20">
+  </div>
+</section>
 
-      <p class="text-lg md:text-xl leading-relaxed text-gray-200 slide-in-onload">
-        Riduci la dipendenza dal telefono durante i viaggi e riscopri il piacere 
-        di vivere l’esperienza autentica del mondo intorno a te. 
-        Con <span class="text-orange-400 font-semibold">Walk Note</span> 
-        ogni passo diventa un ricordo, ogni cammino un racconto.
-      </p>
+<div class="relative w-[200px] h-[50px] overflow-hidden absolute top[600px] left-0"
+     style="background-image: url('Img/bg.jpg');
+            background-size: cover;
+            background-position: center bottom;
+            clip-path: polygon(0 0, 100% 0, 51% 100%, 0 100%);">
+  <div class="absolute inset-0 bg-black/40"></div>
+</div>
 
-      <a href="#PreorderArea" 
-        class="mt-10 px-8 py-4 bg-orange-500 hover:bg-orange-400 text-white font-semibold rounded-full shadow-lg transition-transform duration-300 hover:scale-105">
-        Preordina Ora
-      </a>
-    </div>
 
-    <div class="hidden md:block relative z-10 ml-12">
-      <img src="Img/MainImg.png" 
-          alt="Walk Note dispositivo" 
-          class="w-[420px] h-auto rounded-2xl shadow-2xl border border-white/20">
-    </div>
-  </section>
-
-  <hr class="section-divider">
-
-  <section id="FirstText" class="flex flex-col justify-center items-center text-center w-full h-auto py-24 bg-gradient-to-br from-[#fdf6f0] to-[#fafaf9]">
+  <section id="FirstText" class="flex flex-col justify-center items-center text-center w-full h-auto py-6 bg-gradient-to-br from-[#fdf6f0] to-[#fafaf9]">
     <div class="scroll-reveal max-w-[900px]">
       <h2 class="text-4xl font-bold mb-6">Vantaggi di Walk Note</h2>
       <div class="divider_ mx-auto"></div>
@@ -163,7 +178,6 @@
       </div>
     </div>
   </section>
-
 
   <hr class="section-divider">
 
@@ -213,7 +227,7 @@
                 Preordina Walk Note Ora!
             </div>
             <input type="text" required placeholder="Nome" minlength="3" class="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-lime-500">
-            <input type="text" required placeholder="Cognome" minlength="3" class="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-lime-500">
+            <input type="text" required placeholder="Indirizzo" minlength="3" class="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-lime-500">
             <input type="email" required placeholder="Email" class="p-3 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-lime-500">
             <input type="submit" value="Preordina Ora!" class="cursor-pointer bg-lime-700 hover:bg-lime-600 text-white font-semibold py-3 rounded-md transition">
         </form>
